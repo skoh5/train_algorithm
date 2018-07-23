@@ -6,12 +6,20 @@ import java.util.List;
 public class Nation124 {
 	public String solution(int n) {
 		String answer = "";
+		final int[] arrNum = {4, 1, 2};
 		List<Integer> listInt = new ArrayList<>();
-		while(n > 2) {
-			listInt.add(n%3);
-			n = n/3;
+		int div = 0;
+		while(true) {			
+			listInt.add(arrNum[n%3]);
+			div = (n-1)/3;
+			n = div;
+			if(div <= 3) {
+				break;
+			}
 		}
-		listInt.add(n);
+		if(n > 0) {
+			listInt.add(arrNum[n%3]);
+		}
 		StringBuffer strBuf = new StringBuffer();
 		for(int i=listInt.size()-1;i>=0;i--) {
 			strBuf.append(listInt.get(i));
